@@ -1,13 +1,168 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --dark: #1f1f1f;
+  --light-gray: #818181;
+  --white: #f8f8f8;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  margin-top: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  font-size: 1.2em;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--dark);
+}
+
+/* Navigation  */
+.navbar {
+  height: auto;
+}
+.logo-col {
+  text-align: right;
+}
+
+.SearchCol {
+  text-align: left;
+}
+
+.logo {
+  width: 60%;
+  height: auto;
+}
+
+/* Search  */
+
+/* Style for the input field */
+input[type="text"] {
+  padding: 10px;
+  margin: 5px;
+  font-size: 16px;
+  border: 2px solid var(--dark);
+  border-radius: 4px;
+  width: 250px; /* Adjust the width */
+  transition: border 0.3s ease;
+}
+
+/* On focus, change border color */
+input[type="text"]:focus {
+  border-color: var(--light-gray);
+  outline: none;
+  color: var(--light-gray);
+}
+
+/* Style for the button */
+button {
+  padding: 10px 15px;
+  max-width: 120px;
+  height: 50px;
+  background-color: var(--dark);
+  color: var(--white);
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  border: 3px solid var(--white);
+}
+
+button:hover {
+  padding: 10px 15px;
+  max-width: 120px;
+  height: 50px;
+  background-color: var(--white);
+  color: var(--dark);
+  border: 1px solid var(--dark);
+}
+
+button:focus {
+  outline: none;
+}
+
+.btn-topic {
+  width: 100%; /* Ensure buttons take up equal space */
+  max-width: 120px; /* Set a max width to control button size */
+  height: 50px; /* Fixed height for consistency */
+  padding: 10px;
+  background-color: var(--white);
+  color: var(--dark);
+  border: 1px solid var(--dark);
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  white-space: nowrap; /* Prevents wrapping */
+  overflow: hidden; /* Hides overflowing text */
+  text-overflow: ellipsis; /* Adds "..." if text is too long */
+  box-shadow: 2px 2px 5px var(--light-gray); /* Subtle shadow */
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-topic:hover {
+  background-color: var(--dark);
+  color: var(--white);
+  /* background-color: gray; */
+  box-shadow: 3px 3px 7px var(--light-gray); /* Slightly stronger shadow on hover */
+}
+
+/* style for the images section  */
+.gif-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Ensures that the content is aligned at the top */
+  align-items: center;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  width: 100%;
+  height: 320px; /* Keep the height consistent */
+}
+
+.gif-image {
+  width: 100%;
+  height: 180px; /* Set a fixed height for the GIFs */
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Prevents overflow */
+  cursor: pointer;
+}
+
+.fixed-gif {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures images maintain aspect ratio and fill the container */
+}
+
+.gif-content {
+  text-align: left;
+  font-size: 14px;
+  min-height: 110px;
+  width: 100%; /* Ensures content takes up full width */
+  border: 1px solid rgb(190, 190, 190);
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  box-sizing: border-box; /* Ensures padding is included in the overall width */
+}
+
+.gif-title,
+.gif-rating {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #333;
+  text-transform: capitalize;
+}
+
+.gif-title {
+  font-weight: bold;
 }

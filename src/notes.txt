@@ -1,0 +1,153 @@
+import React, { useState } from 'react';
+import axios from 'axios';
+import Navbar from "../src/Components/Navigation/NavBar.jsx";
+import { Container } from "react-bootstrap";
+import ButtonsRows from './Components/ButtonSection/ButtonsRow.jsx';
+
+
+function App() {
+  const [topics, setTopics] = useState([
+    "Maroon 5", 
+    "Linkin Park",
+    "Jay-z",
+    "Coldplay", 
+    "Biggie", 
+    "Beyonce", 
+    "Musiq Soulchild", 
+    "Drake",
+    "Taylor Swift", 
+    "Wu-tang Clan",
+    "Jennifer Lopez",
+    "Chris Brown"
+  ]);
+  
+  const [gifs, setGifs] = useState([]);
+  const [starInput, setStarInput] = useState('');
+
+  // Fetch gifs when a button is clicked
+  const displayStarInfo = (star) => {
+    const queryURL = `https://api.giphy.com/v1/gifs/search?q=${star}&api_key=yGPJsnSo4YXS4Z35ea2Nvdjq9wQ5vd6f&limit=20`;
+
+    axios.get(queryURL)
+      .then(response => {
+        setGifs(response.data.data);
+      })
+      .catch(error => console.error('Error fetching gifs: ', error));
+  };
+
+  // Add new star to topics list
+  const addStar = () => {
+    if (starInput.trim()) {
+      setTopics([...topics, starInput]);
+      setStarInput('');
+    }
+  };
+
+  // Button List Component
+  const ButtonList = () => {
+    return (
+      <div id="buttonsView">
+        {topics.map((topic, index) => (
+          <button
+            key={index}
+            className="waves-effect waves-light btn black darken-1 z-depth-3 star"
+            onClick={() => displayStarInfo(topic)}
+          >
+            {topic}
+          </button>
+        ))}
+      </div>
+    );
+  };
+
+  // Gif Card Component
+  const GifCard = ({ result }) => {
+    const [state, setState] = useState('still');
+    const [imageUrl, setImageUrl] = useState(result.images.fixed_height_small_still.url);
+
+    const handleImageClick = () => {
+      if (state === 'still') {
+        setImageUrl(result.images.fixed_height_small.url);
+        setState('animate');
+      } else {
+        setImageUrl(result.images.fixed_height_small_still.url);
+        setState('still');
+      }
+    };
+
+    return (
+      <div className="col s12 m4 l3">
+        <div className="card">
+          <div className="card-image" onClick={handleImageClick}>
+            <img src={imageUrl} alt={result.title} />
+          </div>
+          <div className="card-content">
+            <p className="rate">Rating: {result.rating}</p>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  // Gif List Component
+  const GifList = () => {
+    return (
+      <div id="gifsAppearHere" className="row bodyPic">
+        {gifs.map((result, index) => (
+          <GifCard key={index} result={result} />
+        ))}
+      </div>
+    );
+  };
+
+  return (
+
+    <> 
+
+
+      <Container fluid className="app">
+        <Navbar />
+        <ButtonsRows/>
+      </Container>
+   
+
+    <div>
+      
+        <div className="container-fluid">
+          <div className="row">
+            
+            <div className="col-md-6 col-lg-5 middle">
+              <label htmlFor="star-input">Choose Your Star</label>
+              <input
+                type="text"
+                id="star-input"
+                value={starInput}
+                onChange={(e) => setStarInput(e.target.value)}
+              />
+              <button className="btn-style" onClick={addStar} type="button">
+                Add A Star
+              </button>
+            </div>
+
+
+          </div>
+
+
+        </div>
+    
+
+      <div className="container-fluid">
+        <div className="row">
+          <div className="divider"></div>
+        </div>
+      </div>
+
+      <ButtonList />
+      <GifList />
+    </div>
+
+    </>
+  );
+}
+
+export default App;
