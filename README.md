@@ -1,12 +1,15 @@
-# author 
-Lou Carter
-GitHub: github.com/Babyhacker36
-LinkedIn: linkedin.com/in/louiscarterjr/
-website: [louiscarterjr.com] (https://www.linkedin.com/in/louiscarterjr/)
+## Author
+**Lou Carter**  
+GitHub: [github.com/Babyhacker36](https://github.com/Babyhacker36)  
+LinkedIn: [linkedin.com/in/louiscarterjr/](https://www.linkedin.com/in/louiscarterjr/)  
+Website : [louiscarterjr.com]( https://louiscarterjr.com/)  
+
 
 
 This React app taps into the Giffy database to provide a seamless experience for managing and searching through data. With a straightforward search function, users can effortlessly find what they need right on the web app. The real magic happens with the backend API, keeping everything in sync and up-to-date in real-time. It’s a simple, fast, and reliable tool for anyone who wants quick access to their data without any fuss.
 
+
+## Message From Lou
 Ah, yes. Welcome to Project Y—a mystical realm where lines of code transcend mere syntax and become... a living entity. Some might call it a "project." Others might call it "an abomination against nature," but hey, that’s for you to decide.
 
 What exactly is Project Y? It’s a question that has plagued mankind for centuries. In fact, I can hear the voices of philosophers long past, like Socrates and Descartes, whispering in the wind: "What is this code? And how did we get here?" They don’t have the answers, but you, brave developer, might. Or you might just break everything. It’s a 50/50 shot, really.
